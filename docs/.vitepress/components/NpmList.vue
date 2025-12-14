@@ -9,7 +9,7 @@
       <p class="npm-description">{{ pkg.package.description }}</p>
       <div class="npm-meta">
         <span class="npm-version">v{{ pkg.package.version }}</span>
-        <span class="npm-downloads">📥 {{ formatNumber(pkg.downloads || 0) }} (last month)</span>
+        <span class="npm-downloads">📥 {{ formatNumber(pkg.downloads || 0) }}</span>
         <span class="npm-updated">Updated {{ formatDate(pkg.package.date) }}</span>
       </div>
     </div>
@@ -53,12 +53,25 @@ onMounted(async () => {
     if (!response.ok) throw new Error('Failed to fetch NPM packages')
     const data = await response.json()
     
-    // Fetch download counts for each package
+
+    // Fetch all-time download counts for each package
+    const currentYear = new Date().getFullYear()
     const packagesWithStats = await Promise.all(data.objects.map(async (pkg) => {
       try {
-        const statsResponse = await fetch(`https://api.npmjs.org/downloads/point/last-month/${pkg.package.name}`)
-        const statsData = await statsResponse.json()
-        return { ...pkg, downloads: statsData.downloads || 0 }
+        const creationYear = new Date(pkg.package.date).getFullYear()
+        let totalDownloads = 0
+        
+        // Fetch downloads year by year to avoid API limits (approx 18 months max range)
+        for (let year = creationYear; year <= currentYear; year++) {
+          const startDate = `${year}-01-01`
+          const endDate = `${year}-12-31`
+          const response = await fetch(`https://api.npmjs.org/downloads/point/${startDate}:${endDate}/${pkg.package.name}`)
+          if (response.ok) {
+             const json = await response.json()
+             totalDownloads += (json.downloads || 0)
+          }
+        }
+        return { ...pkg, downloads: totalDownloads }
       } catch (e) {
         return { ...pkg, downloads: 0 }
       }
