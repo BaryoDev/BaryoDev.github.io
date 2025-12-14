@@ -12,7 +12,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@vite-pwa/vitepress": "^1.1.0",
+    "vite-plugin-pwa": "^1.2.0",
     "vitepress": "^1.6.4",
-    "vue": "^3.5.25"
+    "vue": "^3.5.25",
+    "workbox-window": "^7.4.0"
   }
 }

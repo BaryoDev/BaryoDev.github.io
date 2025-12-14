@@ -1,7 +1,33 @@
 import { defineConfig } from 'vitepress'
+import { withPwa } from '@vite-pwa/vitepress'
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default withPwa(defineConfig({
+  pwa: {
+    registerType: 'autoUpdate',
+    includeAssets: ['logo.svg'],
+    manifest: {
+      name: 'BaryoDev',
+      short_name: 'BaryoDev',
+      description: 'Official documentation and project showcase',
+      theme_color: '#ffffff',
+      icons: [
+        {
+          src: 'logo.svg',
+          sizes: '192x192',
+          type: 'image/svg+xml'
+        },
+        {
+          src: 'logo.svg',
+          sizes: '512x512',
+          type: 'image/svg+xml'
+        }
+      ]
+    },
+    workbox: {
+      globPatterns: ['**/*.{js,css,html,ico,png,svg}']
+    }
+  },
   title: "BaryoDev",
   description: "Official documentation and project showcase",
   appearance: false,
@@ -46,4 +72,4 @@ export default defineConfig({
       }
     ]
   }
-})
+}))
