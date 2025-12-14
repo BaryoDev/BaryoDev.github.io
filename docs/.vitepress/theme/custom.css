@@ -1,0 +1,69 @@
+:root {
+  /* Google Palette */
+  --google-blue: #4285F4;
+  --google-red: #EA4335;
+  --google-yellow: #FBBC05;
+  --google-green: #34A853;
+
+  /* VitePress Overrides */
+  --vp-c-brand-1: var(--google-blue);
+  --vp-c-brand-2: #3367D6;
+  --vp-c-brand-3: #2A56C6;
+  --vp-c-brand-soft: rgba(66, 133, 244, 0.1);
+
+  --vp-font-family-base: 'Outfit', sans-serif;
+  --vp-font-family-mono: 'JetBrains Mono', monospace;
+}
+
+/* Apply Google font to headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Hero Section Adjustments */
+.VPContent.is-home .VPHero .name {
+  background: linear-gradient(135deg, var(--google-blue) 25%, var(--google-red) 50%, var(--google-yellow) 75%, var(--google-green) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.VPContent.is-home .VPHero .text {
+  color: #3c4043;
+}
+
+/* Card Styling (Google-like) */
+.VPFeature {
+  border: 1px solid #e8eaed !important;
+  background-color: #ffffff !important;
+  border-radius: 8px !important;
+  transition: box-shadow 0.2s ease-in-out !important;
+  box-shadow: none !important;
+}
+
+.VPFeature:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Secondary/Alt Button Styling (Blue text on White background) */
+.VPButton.alt {
+  background-color: #ffffff !important;
+  color: var(--google-blue) !important;
+  border: 1px solid var(--google-blue) !important;
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.VPButton.alt:hover {
+  background-color: var(--vp-c-brand-soft) !important;
+  border-color: #3367D6 !important;
+  color: #3367D6 !important;
+}

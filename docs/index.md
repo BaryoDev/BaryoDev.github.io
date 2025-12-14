@@ -3,35 +3,59 @@ layout: home
 
 hero:
   name: "BaryoDev"
-  text: "The Developer from the Barrio"
-  tagline: "Crafting open source code in free time, bringing solutions from the barrio to the world."
+  text: "The Developer from the Baryo"
+  tagline: "Crafting open source code in free time, bringing solutions from the baryo to the world."
   actions:
     - theme: brand
-      text: "BarakoCMS"
-      link: /projects#barakocms
-    - theme: alt
-      text: "View on GitHub"
-      link: https://github.com/BaryoDev
+      text: "Explore Repositories"
+      link: /repos
 
-features:
-  - title: "From the Barrio"
-    details: "Humble beginnings, global impact. Coding with passion during free time."
-  - title: "Featured: BarakoCMS"
-    details: "The AI-Native Headless CMS. Speed of .NET 8. Flexibility of Event Sourcing. Power of AI."
-    link: /projects#barakocms
-    linkText: Learn more
-  - title: "Featured: Mapsicle"
-    details: "High-performance, zero-dependency .NET object mapper. Near-native speed with Expression Trees."
-    link: /projects#mapsicle
-    linkText: Learn more
-  - title: "Featured: rnxjs"
-    details: "The Rebellion Against Complexity. 10KB Vanilla JS Component System."
-    link: /projects#arnelirobles-rnxjs
-    linkText: Read the Story
-  - title: "Essential Utilities"
-    details: "Robust tools for network stability (resilient-fetcher), data sanitation (deep-clean-obj), and complex merging (deep-merge-lite)."
-    link: /projects
-    linkText: Browse All
-  - title: "Open Source"
-    details: "Committed to sharing knowledge and tools with the developer community."
 ---
+
+<div class="custom-content">
+
+## 🛠️ Featured Repositories
+<RepoList :limit="6" />
+
+<div style="text-align: center; margin: 2rem 0;">
+  <a href="/repos" class="VPButton alt medium">View All Repositories</a>
+</div>
+
+## 🛠️ NuGet Packages
+<NugetList :limit="6" />
+
+<div style="text-align: center; margin: 2rem 0;">
+  <a href="/nuget" class="VPButton alt medium">View All NuGet Packages</a>
+</div>
+
+## 📦 NPM Packages
+<NpmList :limit="6" />
+
+<div style="text-align: center; margin: 2rem 0;">
+  <a href="/packages" class="VPButton alt medium">View All NPM Packages</a>
+</div>
+
+## 🐋 Docker Hub
+<DockerList :limit="6" />
+
+<div style="text-align: center; margin: 2rem 0;">
+  <a href="/docker" class="VPButton alt medium">View All Docker Hub Images</a>
+</div>
+
+</div>
+
+<style>
+.custom-content {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h2 {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  border-top: none;
+}
+</style>
