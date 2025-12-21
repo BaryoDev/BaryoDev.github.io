@@ -1,0 +1,43 @@
+
+> baryodev@1.0.0 docs:build
+> vitepress build docs
+
+
+  vitepress v1.6.4
+
+- building client + server bundles...
+[32m✓[0m building client + server bundles...
+- rendering pages...
+[31m✖[0m rendering pages...
+build error:
+Cannot read properties of undefined (reading 'FieldName')
+TypeError: Cannot read properties of undefined (reading 'FieldName')
+    at _sfc_ssrRender (file:///Users/arnelirobles/Documents/repos/BaryoDev.github.io/docs/.vitepress/.temp/barako-cms_index.md.js:55:1268)
+    at renderComponentSubTree (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:466:9)
+    at renderComponentVNode (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:416:12)
+    at renderVNode (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:529:14)
+    at renderVNodeChildren (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:545:5)
+    at renderElementVNode (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:589:9)
+    at renderVNode (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:527:9)
+    at renderComponentSubTree (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:481:7)
+    at renderComponentVNode (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:416:12)
+    at ssrRenderComponent (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:100:10)
+    at file:///Users/arnelirobles/Documents/repos/BaryoDev.github.io/docs/.vitepress/.temp/app.js:1345:13
+    at renderComponentSubTree (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:466:9)
+    at renderComponentVNode (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:416:12)
+    at ssrRenderComponent (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:100:10)
+    at file:///Users/arnelirobles/Documents/repos/BaryoDev.github.io/docs/.vitepress/.temp/app.js:2083:15
+    at renderComponentSubTree (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:466:9)
+    at renderComponentVNode (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:416:12)
+    at ssrRenderComponent (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:100:10)
+    at file:///Users/arnelirobles/Documents/repos/BaryoDev.github.io/docs/.vitepress/.temp/app.js:4203:15
+    at renderComponentSubTree (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:466:9)
+    at renderComponentVNode (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:416:12)
+    at renderVNode (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:529:14)
+    at renderComponentSubTree (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:481:7)
+    at renderComponentVNode (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:416:12)
+    at renderToString (/Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js:696:24)
+    at render (file:///Users/arnelirobles/Documents/repos/BaryoDev.github.io/docs/.vitepress/.temp/app.js:5449:23)
+    at async renderPage (file:///Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/vitepress/dist/node/chunk-D3CUZ4fa.js:49377:19)
+    at async pMap.concurrency (file:///Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/vitepress/dist/node/chunk-D3CUZ4fa.js:49624:11)
+    at async file:///Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/vitepress/dist/node/chunk-D3CUZ4fa.js:4505:20

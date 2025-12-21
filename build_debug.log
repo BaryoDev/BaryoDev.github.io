@@ -1,0 +1,35 @@
+
+> baryodev@1.0.0 docs:build
+> vitepress build docs
+
+
+  vitepress v1.6.4
+
+- building client + server bundles...
+
+
+(!) Found dead link ./docs/plugin-development-guide in file barako-cms/index.md
+(!) Found dead link ./docs/workflow-migration-guide in file barako-cms/index.md
+(!) Found dead link ./DEVELOPMENT_STANDARDS in file barako-cms/index.md
+(!) Found dead link ./CHANGELOG in file barako-cms/index.md
+(!) Found dead link ./CONTRIBUTING in file barako-cms/index.md
+(!) Found dead link ./CODE_OF_CONDUCT in file barako-cms/index.md
+(!) Found dead link ./.cursorrules in file barako-cms/index.md
+(!) Found dead link ./CITATIONS.cff in file barako-cms/index.md
+(!) Found dead link ./CLA in file barako-cms/index.md
+(!) Found dead link ./CONTRIBUTING in file barako-cms/index.md
+
+If this is expected, you can disable this check via config. Refer: https://vitepress.dev/reference/site-config#ignoredeadlinks
+
+x Build failed in 1.41s
+[31m✖[0m building client + server bundles...
+build error:
+[vitepress] 10 dead link(s) found.
+[vitepress] 10 dead link(s) found.
+    at Object.renderStart (file:///Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/vitepress/dist/node/chunk-D3CUZ4fa.js:45027:15)
+    at file:///Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/rollup/dist/es/shared/node-entry.js:22451:40
+    at async Promise.all (index 0)
+    at async PluginDriver.hookParallel (file:///Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/rollup/dist/es/shared/node-entry.js:22361:9)
+    at async Bundle.generate (file:///Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/rollup/dist/es/shared/node-entry.js:20558:13)
+    at async file:///Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/rollup/dist/es/shared/node-entry.js:23438:27
+    at async catchUnfinishedHookActions (file:///Users/arnelirobles/Documents/repos/BaryoDev.github.io/node_modules/rollup/dist/es/shared/node-entry.js:22805:16)

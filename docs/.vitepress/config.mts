@@ -54,22 +54,97 @@ export default withPwa(defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'BarakoCMS', link: '/barako-cms/' },
       { text: 'Repositories', link: '/repos' },
       { text: 'NPM Packages', link: '/packages' },
       { text: 'NuGet Packages', link: '/nuget' },
       { text: 'Docker Hub', link: '/docker' }
     ],
 
-    sidebar: [
-      {
-        text: 'Guide',
-        items: [
-          { text: 'Repositories', link: '/repos' },
-          { text: 'NPM Packages', link: '/packages' },
-          { text: 'NuGet Packages', link: '/nuget' },
-          { text: 'Docker Hub', link: '/docker' }
-        ]
-      }
-    ]
+    sidebar: {
+      '/barako-cms/': [
+        {
+          text: 'BarakoCMS',
+          items: [
+            { text: 'Introduction', link: '/barako-cms/' },
+            { text: 'Roadmap', link: '/barako-cms/roadmap' },
+            { text: 'Versions', link: '/barako-cms/versions' }
+          ]
+        },
+        {
+          text: 'Guide',
+          collapsed: false,
+          items: [
+            { text: 'Introduction', link: '/barako-cms/guide/introduction' },
+            { text: 'Getting Started', link: '/barako-cms/guide/getting-started' },
+            { text: 'Configuration', link: '/barako-cms/guide/configuration' },
+            { text: 'Content Modeling', link: '/barako-cms/guide/content-modeling' },
+            { text: 'Admin UI', link: '/barako-cms/guide/admin-ui' },
+            { text: 'RBAC', link: '/barako-cms/guide/rbac' },
+            { text: 'Testing', link: '/barako-cms/guide/testing' },
+            { text: 'Observability', link: '/barako-cms/guide/observability' },
+            { text: 'Troubleshooting', link: '/barako-cms/guide/troubleshooting' }
+          ]
+        },
+        {
+          text: 'Deployment',
+          collapsed: false,
+          items: [
+            { text: 'Local', link: '/barako-cms/guide/local-deployment' },
+            { text: 'Docker/Kubernetes', link: '/barako-cms/guide/kubernetes-deployment' },
+            { text: 'Fly.io', link: '/barako-cms/guide/fly-io-deployment' },
+            { text: 'Oracle Cloud', link: '/barako-cms/guide/oracle-cloud-deployment' },
+            { text: 'Backup & Recovery', link: '/barako-cms/guide/backup-recovery' }
+          ]
+        },
+        {
+          text: 'Core Concepts',
+          collapsed: true,
+          items: [
+            { text: 'Architecture', link: '/barako-cms/guide/architecture' },
+            { text: 'Event Sourcing', link: '/barako-cms/core-concepts/event-sourcing' },
+            { text: 'Concurrency', link: '/barako-cms/core-concepts/concurrency' },
+            { text: 'Database Automation', link: '/barako-cms/guide/database-automation' }
+          ]
+        },
+        {
+          text: 'Workflows & Plugins',
+          collapsed: true,
+          items: [
+            { text: 'Overview', link: '/barako-cms/workflows/' },
+            { text: 'Plugins', link: '/barako-cms/workflows/plugins' },
+            { text: 'Plugin Development', link: '/barako-cms/plugin-development-guide' },
+            { text: 'Examples', link: '/barako-cms/workflows/plugin-examples' }
+          ]
+        },
+        {
+          text: 'API & Reference',
+          collapsed: true,
+          items: [
+            { text: 'Endpoints', link: '/barako-cms/api/endpoints' },
+            { text: 'Error Codes', link: '/barako-cms/reference/error-codes' }
+          ]
+        },
+        {
+          text: 'Blog',
+          collapsed: true,
+          items: [
+            { text: 'Index', link: '/barako-cms/blog/' },
+            { text: 'Manifesto', link: '/barako-cms/blog/barako-manifesto' }
+          ]
+        }
+      ],
+      '/': [
+        {
+          text: 'Guide',
+          items: [
+            { text: 'Repositories', link: '/repos' },
+            { text: 'NPM Packages', link: '/packages' },
+            { text: 'NuGet Packages', link: '/nuget' },
+            { text: 'Docker Hub', link: '/docker' }
+          ]
+        }
+      ]
+    }
   }
 }))
