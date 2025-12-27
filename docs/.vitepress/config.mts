@@ -55,6 +55,7 @@ export default withPwa(defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'BarakoCMS', link: '/barako-cms/' },
+      { text: 'Libraries', link: '/libraries' },
       { text: 'Repositories', link: '/repos' },
       { text: 'NPM Packages', link: '/packages' },
       { text: 'NuGet Packages', link: '/nuget' },

@@ -10,7 +10,7 @@
       <div class="npm-meta">
         <span class="npm-version">v{{ pkg.package.version }}</span>
         <span class="npm-downloads">📥 {{ formatNumber(pkg.downloads || 0) }}</span>
-        <span class="npm-updated">Updated {{ formatDate(pkg.package.date) }}</span>
+        <span class="npm-updated">Updated {{ timeAgo(pkg.package.date) }}</span>
       </div>
     </div>
   </div>
@@ -18,6 +18,8 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
+import { resilientFetch } from 'resilient-fetcher'
+import { timeAgo } from '@arnelirobles/tiny-time-ago'
 
 const props = defineProps({
   limit: {
@@ -34,13 +36,7 @@ const filteredPackages = computed(() => {
   return props.limit > 0 ? packages.value.slice(0, props.limit) : packages.value
 })
 
-const formatDate = (dateStr) => {
-  return new Date(dateStr).toLocaleDateString(undefined, {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric'
-  })
-}
+
 
 const formatNumber = (num) => {
   return new Intl.NumberFormat().format(num)
@@ -49,7 +45,11 @@ const formatNumber = (num) => {
 onMounted(async () => {
   try {
     // Searching for packages by author:arnelirobles
-    const response = await fetch('https://registry.npmjs.org/-/v1/search?text=author:arnelirobles&size=20')
+    const response = await resilientFetch('https://registry.npmjs.org/-/v1/search?text=author:arnelirobles&size=20', {
+      retries: 3,
+      retryDelay: 1000,
+      timeout: 10000
+    })
     if (!response.ok) throw new Error('Failed to fetch NPM packages')
     const data = await response.json()
     
@@ -65,7 +65,11 @@ onMounted(async () => {
         for (let year = creationYear; year <= currentYear; year++) {
           const startDate = `${year}-01-01`
           const endDate = `${year}-12-31`
-          const response = await fetch(`https://api.npmjs.org/downloads/point/${startDate}:${endDate}/${pkg.package.name}`)
+          const response = await resilientFetch(`https://api.npmjs.org/downloads/point/${startDate}:${endDate}/${pkg.package.name}`, {
+            retries: 3,
+            retryDelay: 1000,
+            timeout: 10000
+          })
           if (response.ok) {
              const json = await response.json()
              totalDownloads += (json.downloads || 0)

@@ -17,6 +17,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
+import { resilientFetch } from 'resilient-fetcher'
 
 const props = defineProps({
   limit: {
@@ -42,7 +43,11 @@ onMounted(async () => {
     const url = 'https://hub.docker.com/v2/repositories/arnelirobles/?page_size=20'
     const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`
     
-    const response = await fetch(proxyUrl)
+    const response = await resilientFetch(proxyUrl, {
+      retries: 3,
+      retryDelay: 1000,
+      timeout: 15000
+    })
     if (!response.ok) throw new Error('Failed to fetch Docker Hub repositories')
     
     const data = await response.json()

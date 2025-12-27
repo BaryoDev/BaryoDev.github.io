@@ -17,6 +17,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
+import { resilientFetch } from 'resilient-fetcher'
 
 const props = defineProps({
   limit: {
@@ -39,7 +40,11 @@ const formatNumber = (num) => {
 
 onMounted(async () => {
   try {
-    const response = await fetch('https://azuresearch-usnc.nuget.org/query?q=owner:arnelirobles&prerelease=false&semVerLevel=2.0.0')
+    const response = await resilientFetch('https://azuresearch-usnc.nuget.org/query?q=owner:arnelirobles&prerelease=false&semVerLevel=2.0.0', {
+      retries: 3,
+      retryDelay: 1000,
+      timeout: 10000
+    })
     if (!response.ok) throw new Error('Failed to fetch NuGet packages')
     const data = await response.json()
     packages.value = data.data

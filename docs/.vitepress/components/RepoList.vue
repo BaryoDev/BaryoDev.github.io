@@ -13,7 +13,7 @@
           {{ repo.language }}
         </span>
         <span class="repo-stars">⭐ {{ repo.stargazers_count }}</span>
-        <span class="repo-updated">Updated {{ formatDate(repo.updated_at) }}</span>
+        <span class="repo-updated">Updated {{ timeAgo(repo.updated_at) }}</span>
       </div>
     </div>
   </div>
@@ -21,6 +21,8 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
+import { resilientFetch } from 'resilient-fetcher'
+import { timeAgo } from '@arnelirobles/tiny-time-ago'
 
 const props = defineProps({
   limit: {
@@ -51,17 +53,15 @@ const getLangColor = (lang) => {
   return colors[lang] || '#8b949e'
 }
 
-const formatDate = (dateStr) => {
-  return new Date(dateStr).toLocaleDateString(undefined, {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric'
-  })
-}
+
 
 onMounted(async () => {
   try {
-    const response = await fetch('https://api.github.com/orgs/BaryoDev/repos?sort=updated&direction=desc')
+    const response = await resilientFetch('https://api.github.com/orgs/BaryoDev/repos?sort=updated&direction=desc', {
+      retries: 3,
+      retryDelay: 1000,
+      timeout: 10000
+    })
     if (!response.ok) throw new Error('Failed to fetch repositories')
     const data = await response.json()
     repos.value = data
